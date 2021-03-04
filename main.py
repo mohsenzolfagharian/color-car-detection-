@@ -6,8 +6,10 @@ cars_cascade = cv2.CascadeClassifier('haarcascade_car.xml')
 
 
 def detect_cars(frame):
+    #detec cars in multi scales
     cars = cars_cascade.detectMultiScale(frame, 1.15, 4)
-
+    # draw a rectangle for car
+    #RECTANGLE color will be blue
     for (x, y, w, h) in cars:
         cv2.rectangle(frame, (x, y), (x + w, y + h), color=(255, 0, 0), thickness=2)
 
